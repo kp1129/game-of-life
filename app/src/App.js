@@ -130,7 +130,8 @@ const App = () => {
           return (
             <div
               key={`${i}--${j}`}
-              onClick={() => handleCellClick(i, j)}
+              // onClick only works if not running simulation
+              onClick={runningSimulation ? undefined : () => handleCellClick(i, j)}
               style={{
                 border: "1px solid black",
                 width: "25px",
