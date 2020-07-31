@@ -18,20 +18,21 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
-  
+  padding: 0;  
+  margin: 0 auto;  
 }
 
 .grid-container {
+  margin-left: 5%;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(25, 3.9vw);
+  grid-template-columns: repeat(25, 3.7vw);
 }
 
 .cell {
   border: 1px solid black;
-  width: 3.9vw;
-  height: 3.9vw;            
+  width: 3.7vw;
+  height: 3.7vw;            
 }
 
 h1 {
@@ -79,6 +80,8 @@ select {
   }
 
   .grid-container {
+    width: 100%;
+    margin: 0;
     grid-template-columns: repeat(25, 3vw);
   }
 
