@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-
+import Rules from './Rules';
 import "./App.css";
 
 const App = () => {
@@ -178,6 +178,7 @@ const App = () => {
       <button onClick={handleSimulation} type="button">
         {runningSimulation ? "stop simulation" : "start simulation"}
       </button>
+      <Rules />
     </div>
   );
 };
