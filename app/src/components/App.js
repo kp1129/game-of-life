@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Rules from "./Rules";
 import ControlPanel from "./ControlPanel";
-import "./App.css";
 
 const App = () => {
   // set the size of the grid
