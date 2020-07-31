@@ -28,8 +28,8 @@ const ControlPanel = ({
       </button>
       <br />
       <p>
-        Alternatively, start the simulation and watch how this
-        population will change over time.
+        Alternatively, start the simulation and watch how this population will
+        change over time.
       </p>
       <button onClick={handleSimulation} type="button">
         {runningSimulation ? "stop simulation" : "start simulation"}
@@ -40,10 +40,8 @@ const ControlPanel = ({
       <br />
       <br />
       <label htmlFor="speed-select">Choose simulation speed </label>
-      <select onChange={(e) => handleSpeedSelect(e)} id="speed-select">
-        <option selected value="1000">
-          slow
-        </option>
+      <select defaultValue="1000" onChange={(e) => handleSpeedSelect(e)} id="speed-select">
+        <option value="1000">slow</option>
         <option value="500">average</option>
         <option value="100">fast</option>
       </select>
