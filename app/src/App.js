@@ -20,7 +20,7 @@ const App = () => {
   };
 
   const [grid, setGrid] = useState(emptyGrid());
-
+  const [generation, setGeneration] = useState(0);
   const neighborCoordinates = [
     [0, 1],
     [0, -1],
@@ -33,6 +33,8 @@ const App = () => {
   ];
 
   const runSimulation = () => {
+    let nextGeneration = generation + 1;
+    setGeneration(nextGeneration);
     let nextGenGrid = emptyGrid();
     
     for(let i = 0; i < numRows; i++){
@@ -83,6 +85,7 @@ const App = () => {
 
   return (
     <>
+    <h1>Generation: {generation}</h1>
     <div
       style={{
         display: "grid",
