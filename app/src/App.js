@@ -156,6 +156,9 @@ const App = () => {
           });
         })}
       </div>
+      <div className="non-grid-container">
+      <div className="control-panel">
+        <h3>Control Panel</h3>
       <button onClick={handleNextGen} type="button">
         see next generation
       </button>
@@ -178,7 +181,9 @@ const App = () => {
       <button onClick={handleSimulation} type="button">
         {runningSimulation ? "stop simulation" : "start simulation"}
       </button>
+      </div>
       <Rules />
+      </div>
     </div>
   );
 };

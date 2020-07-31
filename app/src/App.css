@@ -1,9 +1,15 @@
 .app {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  
 }
 
 .grid-container {
   width: 100%;
+  border: 1px solid purple;
   display: grid;
   grid-template-columns: repeat(25, 3.9vw);
 }
@@ -14,18 +20,65 @@
   height: 3.9vw;            
 }
 
+h1 {
+  padding: 0 5%;
+}
+
+.control-panel {
+  padding: 0 5%;
+}
+
+.rules-container {
+  padding: 0 5%;
+}
+
 @media(min-width: 600px){
   .app {
-    width: 95%;
+    width: 75%;    
+    border: 1px solid red;
   }
 
   .grid-container {
+    grid-template-columns: repeat(25, 3vw);
+  }
+
+  .cell {
+    width: 3vw;
+    height: 3vw;
+  }
+}
+
+@media(min-width: 1024px){
+  .app {
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1250px;
+    align-items: flex-start;
+    
+  }
+  h1 {
+    order: 0;
+    width: 100%;
+  }
+  .grid-container {
+    order: 1;
+    width: 60%;
     grid-template-columns: repeat(25, 1.5rem);
   }
 
   .cell {
     width: 1.5rem;
     height: 1.5rem;
+  }
+
+  .non-grid-container {
+    order: 2;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    
   }
 }
 
