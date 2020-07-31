@@ -47,10 +47,15 @@ button:active {
   transform: translateY(2px);
 }
 
+.button-row {
+  display: flex;
+  width: 67%;
+  justify-content: space-between;
+}
+
 .reset {
   background-color: indianred;
   color: white;
-  margin-left: 5px;
 }
 
 select {
