@@ -28,17 +28,15 @@ const ControlPanel = ({
       </button>
       <br />
       <p>
-        Alternatively, start the simulation and sit back and watch how this
+        Alternatively, start the simulation and watch how this
         population will change over time.
       </p>
-      <div className="button-row">
-        <button onClick={handleSimulation} type="button">
-          {runningSimulation ? "stop simulation" : "start simulation"}
-        </button>
-        <button className="reset" onClick={handleReset} type="button">
-          reset
-        </button>
-      </div>
+      <button onClick={handleSimulation} type="button">
+        {runningSimulation ? "stop simulation" : "start simulation"}
+      </button>
+      <button className="reset" onClick={handleReset} type="button">
+        reset
+      </button>
       <br />
       <br />
       <label htmlFor="speed-select">Choose simulation speed </label>

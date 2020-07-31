@@ -36,8 +36,9 @@ h1 {
 button {
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
-  background-color: rgb(117, 144, 69);
-  border: 1px solid gray;
+  /* background-color: rgb(117, 144, 69); */
+  background-color: #4caf50;
+  border: 1px solid black;
   color: white;
   outline: none;
   cursor: pointer;
@@ -47,15 +48,10 @@ button:active {
   transform: translateY(2px);
 }
 
-.button-row {
-  display: flex;
-  width: 67%;
-  justify-content: space-between;
-}
-
 .reset {
   background-color: indianred;
   color: white;
+  margin-left: 5px;
 }
 
 select {

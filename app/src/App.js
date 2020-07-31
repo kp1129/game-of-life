@@ -158,7 +158,6 @@ const App = () => {
           });
         })}
       </div>
-
       <ControlPanel
         handleRandomPopulation={handleRandomPopulation}
         handleNextGen={handleNextGen}
