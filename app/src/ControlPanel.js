@@ -1,6 +1,13 @@
 import React from "react";
 
-const ControlPanel = ({handleRandomPopulation, handleNextGen, handleSimulation, handleReset, handleSpeedSelect, runningSimulation}) => {
+const ControlPanel = ({
+  handleRandomPopulation,
+  handleNextGen,
+  handleSimulation,
+  handleReset,
+  handleSpeedSelect,
+  runningSimulation,
+}) => {
   return (
     <div className="control-panel">
       <h3>Control Panel</h3>
