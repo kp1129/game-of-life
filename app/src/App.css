@@ -9,7 +9,6 @@
 
 .grid-container {
   width: 100%;
-  border: 1px solid purple;
   display: grid;
   grid-template-columns: repeat(25, 3.9vw);
 }
@@ -30,12 +29,38 @@ h1 {
 
 .rules-container {
   padding: 0 5%;
+  border-top: 1px dotted gray;
+  margin: 5% 0;
+}
+
+button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: rgb(117, 144, 69);
+  border: 1px solid gray;
+  color: white;
+  outline: none;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+.reset {
+  background-color: indianred;
+  color: white;
+  margin-left: 5px;
+}
+
+select {
+  padding: 0.25rem 1.5rem 0.25rem 0;
+  text-align: left;
 }
 
 @media(min-width: 600px){
   .app {
     width: 75%;    
-    border: 1px solid red;
   }
 
   .grid-container {
@@ -52,18 +77,17 @@ h1 {
   .app {
     flex-flow: row wrap;
     justify-content: space-between;
-    width: 90%;
-    max-width: 1250px;
-    align-items: flex-start;
-    
+    width: 95%;
+    max-width: 1130px; 
   }
+
   h1 {
     order: 0;
     width: 100%;
   }
   .grid-container {
     order: 1;
-    width: 60%;
+    width: 50%;
     grid-template-columns: repeat(25, 1.5rem);
   }
 
@@ -72,13 +96,16 @@ h1 {
     height: 1.5rem;
   }
 
-  .non-grid-container {
+  .control-panel {
     order: 2;
     width: 30%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid red;
-    
+    padding: 0;
+  }
+
+  .rules-container {
+    order: 3;
+    width: 100%;
+    padding: 0;
   }
 }
 

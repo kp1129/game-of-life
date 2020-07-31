@@ -156,17 +156,29 @@ const App = () => {
           });
         })}
       </div>
-      <div className="non-grid-container">
+     
       <div className="control-panel">
         <h3>Control Panel</h3>
+        <p>Click on the individual cells to set the population for generation 0, or use the "random population" button to set it randomly.</p>
+        <button onClick={handleRandomPopulation} type="button">
+        random population
+      </button>
+      <br/>
+      <p>To see what the next generation of this population would look like, click "see next generation."</p>
       <button onClick={handleNextGen} type="button">
         see next generation
       </button>
-      <button onClick={handleReset} type="button">
+      <br/>
+      <p>Alternatively, start the simulation and sit back and watch how this population will change over time.</p>
+      <button onClick={handleSimulation} type="button">
+        {runningSimulation ? "stop simulation" : "start simulation"}
+      </button>
+      <button className="reset" onClick={handleReset} type="button">
         reset
       </button>
       <br />
-      <label htmlFor="speed-select">simulation speed </label>
+      <br/>
+      <label htmlFor="speed-select">Choose simulation speed </label>
       <select onChange={(e) => handleSpeedSelect(e)} id="speed-select">
         <option selected value="1000">
           slow
@@ -175,16 +187,10 @@ const App = () => {
         <option value="100">fast</option>
       </select>
       <br />
-      <button onClick={handleRandomPopulation} type="button">
-        random population
-      </button>
-      <button onClick={handleSimulation} type="button">
-        {runningSimulation ? "stop simulation" : "start simulation"}
-      </button>
       </div>
       <Rules />
       </div>
-    </div>
+   
   );
 };
 

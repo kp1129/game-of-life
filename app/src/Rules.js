@@ -3,7 +3,7 @@ import React from "react";
 const Rules = () => {
   return (
     <div className="rules-container">
-      <h3>Rules</h3>
+      <h3>Conway's Game of Life</h3>
       <p>Any empty cell with 3 live neighbors becomes a live cell (reproduction).</p>
       <p>Any live cell with fewer than 2 neighbors dies from underpopulation.</p>
       <p>Any live cell with more than 3 neighbors dies from overpopulation.</p>
