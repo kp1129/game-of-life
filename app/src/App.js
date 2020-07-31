@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import "./App.css";
 
@@ -18,9 +18,13 @@ const App = () => {
     }
     return outer_array;
   };
-
+  // the grid
   const [grid, setGrid] = useState(emptyGrid());
+  // generation counter
   const [generation, setGeneration] = useState(0);
+  // start/stop simulation flag
+  const [runningSimulation, setRunningSimulation] = useState(false);
+
   const neighborCoordinates = [
     [0, 1],
     [0, -1],
@@ -32,11 +36,16 @@ const App = () => {
     [-1, 0]
   ];
 
-  const runSimulation = () => {
-    let nextGeneration = generation + 1;
+  const runSimulation = useCallback(() => {
+    // increment generation
+    let nextGeneration = generation + 1
     setGeneration(nextGeneration);
+
+    // make a new grid
     let nextGenGrid = emptyGrid();
-    
+    let oldGridCopy = [...grid];
+    // iterate over the current grid
+    // to calculate new values
     for(let i = 0; i < numRows; i++){
       for(let j = 0; j < numCols; j++){
         // count up neighbors
@@ -50,7 +59,7 @@ const App = () => {
           // count them as a neighbor and
           // add their value to neighbors
           if(newX >= 0 && newX < numRows && newY >= 0 && newY < numCols){
-            neighbors += grid[newX][newY];
+            neighbors += oldGridCopy[newX][newY];
           }
         });
         // change cell state according to game logic
@@ -66,12 +75,24 @@ const App = () => {
         } 
         // otherwise, the next generation looks the same
         else {
-          nextGenGrid[i][j] = grid[i][j]
+          nextGenGrid[i][j] = oldGridCopy[i][j]
         }
       }
     }
     setGrid(nextGenGrid);
-  }
+  })
+
+  useEffect(() => {
+    if(runningSimulation === false){
+      return;
+    } 
+    const timer = setInterval(() => {
+      runSimulation();
+      console.log('hola from timeout');
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [runSimulation, runningSimulation]);
+
 
   const handleCellClick = (x, y) => {
     // toggle cell value between 0 and 1
@@ -111,6 +132,8 @@ const App = () => {
       
     </div>
     <button onClick={handleNextGen} type="button">see next generation</button>
+    <button onClick={() => setRunningSimulation(true)} type="button">start simulation</button>
+    <button onClick={() => setRunningSimulation(false)} type="button">stop simulation</button>
     </>
   );
 };
