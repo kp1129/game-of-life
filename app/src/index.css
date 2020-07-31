@@ -1,3 +1,5 @@
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -22,25 +24,30 @@ code {
   margin: 0 auto;  
 }
 
-.grid-container {
-  margin-left: 5%;
-  width: 100%;
+.grid-container {  
+  width: 70%;
   display: grid;
-  grid-template-columns: repeat(25, 3.7vw);
+  grid-template-columns: repeat(20, 3.25vw);
 }
 
 .cell {
   border: 1px solid black;
-  width: 3.7vw;
-  height: 3.7vw;            
+  width: 3.25vw;
+  height: 3.25vw;            
 }
 
 h1 {
+  font-size: 1.5rem;
   padding: 0 5%;
+  align-self: flex-start;
 }
 
 .control-panel {
   padding: 0 5%;
+}
+
+h2 {
+  font-size: 1rem;
 }
 
 .rules-container {
@@ -79,15 +86,23 @@ select {
     width: 75%;    
   }
 
+  .control-panel {
+    width: 90%;
+  }
+
   .grid-container {
-    width: 100%;
+    width: 85%;
     margin: 0;
-    grid-template-columns: repeat(25, 3vw);
+    grid-template-columns: repeat(20, 3vw);
   }
 
   .cell {
     width: 3vw;
     height: 3vw;
+  }
+
+  .rules-container {
+    width: 90%;
   }
 }
 
@@ -96,17 +111,22 @@ select {
     flex-flow: row wrap;
     justify-content: space-between;
     width: 95%;
-    max-width: 1130px; 
+    max-width: 1024px; 
   }
 
   h1 {
     order: 0;
     width: 100%;
   }
+
+  h2 {
+    font-size: 1.15rem;
+  }
+
   .grid-container {
     order: 1;
     width: 50%;
-    grid-template-columns: repeat(25, 1.5rem);
+    grid-template-columns: repeat(20, 1.5rem);
   }
 
   .cell {
@@ -118,6 +138,7 @@ select {
     order: 2;
     width: 30%;
     padding: 0;
+    margin-right: 3rem;
   }
 
   .rules-container {

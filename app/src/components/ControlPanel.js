@@ -10,17 +10,17 @@ const ControlPanel = ({
 }) => {
   return (
     <div className="control-panel">
-      <h3>Control Panel</h3>
+      <h2>Control Panel</h2>
       <p>
-        Click on the individual cells to set the population for generation 0, or
-        use the "random population" button to set it randomly.
+        Set generation 0 by clicking on the individual cells or "random population."
+      
       </p>
       <button onClick={handleRandomPopulation} type="button">
         random population
       </button>
       <br />
       <p>
-        To see what the next generation of this population would look like,
+        To see the next generation of the current population,
         click "see next generation."
       </p>
       <button onClick={handleNextGen} type="button">

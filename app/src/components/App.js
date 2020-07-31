@@ -4,8 +4,8 @@ import ControlPanel from "./ControlPanel";
 
 const App = () => {
   // set the size of the grid
-  const numRows = 25;
-  const numCols = 25;
+  const numRows = 20;
+  const numCols = 20;
 
   const emptyGrid = () => {
     const outer_array = [];
