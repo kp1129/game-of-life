@@ -22,9 +22,12 @@ const App = () => {
   const [grid, setGrid] = useState(emptyGrid());
   // generation counter
   const [generation, setGeneration] = useState(0);
+  // simulation speed controls, defaults to slow
+  const [speed, setSpeed] = useState(1000);
   // start/stop simulation flag
   const [runningSimulation, setRunningSimulation] = useState(false);
 
+  // this helps to calculate neighbors painlessly
   const neighborCoordinates = [
     [0, 1],
     [0, -1],
@@ -89,7 +92,7 @@ const App = () => {
     const timer = setInterval(() => {
       runSimulation();
       console.log('hola from timeout');
-    }, 1000);
+    }, speed);
     return () => clearInterval(timer);
   }, [runSimulation, runningSimulation]);
 
@@ -114,6 +117,23 @@ const App = () => {
     setRunningSimulation(false);
     setGeneration(0);
     setGrid(emptyGrid());
+  }
+
+  const handleSpeedSelect = (e) => {
+    let newSpeed = parseInt(e.target.value)
+    setSpeed(newSpeed);
+  }
+
+  const handleRandomPopulation = () => {
+    const outer_array = [];
+    for (let i = 0; i < numRows; i++) {
+      const inner_array = [];
+      for (let j = 0; j < numCols; j++) {
+        inner_array.push(Math.random() > 0.7 ? 1 : 0);
+      }
+      outer_array.push(inner_array);
+    }
+    setGrid(outer_array);
   }
 
   return (
@@ -145,8 +165,17 @@ const App = () => {
       
     </div>
     <button onClick={handleNextGen} type="button">see next generation</button>
-    <button onClick={handleSimulation} type="button">{runningSimulation ? "stop simulation" : "start simulation"}</button>
     <button onClick={handleReset} type="button">reset</button>
+    <br/>
+    <label htmlFor="speed-select">simulation speed </label>
+    <select onChange={(e) => handleSpeedSelect(e)} id="speed-select">
+      <option selected value="1000">slow</option>
+      <option value="500">average</option>
+      <option value="100">fast</option>
+    </select><br/>
+    <button onClick={handleRandomPopulation} type="button">random population</button>
+    <button onClick={handleSimulation} type="button">{runningSimulation ? "stop simulation" : "start simulation"}</button>
+    
     </>
   );
 };
