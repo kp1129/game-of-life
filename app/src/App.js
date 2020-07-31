@@ -104,6 +104,18 @@ const App = () => {
     runSimulation();
   }
 
+  const handleSimulation = () => {
+    setRunningSimulation(!runningSimulation);
+  }
+
+  const handleReset = () => {
+    // reset the grid, generation counter,
+    // and the running simulation flag
+    setRunningSimulation(false);
+    setGeneration(0);
+    setGrid(emptyGrid());
+  }
+
   return (
     <>
     <h1>Generation: {generation}</h1>
@@ -132,8 +144,8 @@ const App = () => {
       
     </div>
     <button onClick={handleNextGen} type="button">see next generation</button>
-    <button onClick={() => setRunningSimulation(true)} type="button">start simulation</button>
-    <button onClick={() => setRunningSimulation(false)} type="button">stop simulation</button>
+    <button onClick={handleSimulation} type="button">{runningSimulation ? "stop simulation" : "start simulation"}</button>
+    <button onClick={handleReset} type="button">reset</button>
     </>
   );
 };
